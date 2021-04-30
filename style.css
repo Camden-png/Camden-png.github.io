@@ -34,7 +34,10 @@ header {
   background-color: black;
 }
 
-h2 { font-size: 64px; }
+h2 {
+  font-size: 64px;
+  text-align: center;
+}
 
 #h2 {
   animation-name: appear;
@@ -45,13 +48,7 @@ h2 { font-size: 64px; }
   margin-top: 1%;
   animation-name: appear;
   animation-duration: 4s;
-}
-
-#h3-mobile {
-  display: none;
-  margin-top: 1%;
-  animation-name: appear;
-  animation-duration: 4s;
+  text-align: center;
 }
 
 #h4 {
@@ -60,9 +57,11 @@ h2 { font-size: 64px; }
   animation-duration: 5s;
 }
 
-html, body {
-  overflow-x: hidden;
-}
+h5, h6 { text-align: center; }
+
+.summary { max-width: 60%; }
+
+html, body { overflow-x: hidden; }
 
 body {
   margin-top: 74px;
@@ -208,6 +207,7 @@ h5 {
   max-width: 20%;
   max-height: 20%;
   min-width: 280px;
+  margin-bottom: 0.85%;
 }
 
 h6 {
@@ -277,22 +277,19 @@ a:hover {
   100% { opacity: 100%; }
 }
 
-/* Overwrite appear animation */
-
 @media (max-width: 880px) {
   * { font-size: 3.6vw; }
   h2 { font-size: 7.3vw; }
   h5 { font-size: 7.4vw; }
 }
 
-@media (max-width: 445px) {
-  * { font-size: 16px; }
-  h2 { font-size: 34px; }
-  h5 { font-size: 35px; }
+@media (max-width: 541px) {
+  * { font-size: 20px; }
+  h2 { font-size: 40px; }
+  h5 { font-size: 41px; }
 }
 
-@media (max-width: 390px) {
-  * { font-size: 13px; }
-  h2 { font-size: 30px; }
-  h5 { font-size: 31px; }
+@media (max-width: 496px) {
+  h4 { margin-left: 5px; }
+  .summary { max-width: 80%; }
 }

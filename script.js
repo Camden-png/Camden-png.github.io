@@ -3,7 +3,7 @@
 let content = document.getElementById("content-container");
 let hide = document.getElementById("hide");
 let percent = content.style.marginBottom
-content.style.marginBottom = "0px";
+content.style.marginBottom = "70px";
 hide.style.display = "none";
 setTimeout(wait, 2000);
 function wait() {
@@ -29,14 +29,31 @@ function scroll() {
   }
 }
 
-let home = document.getElementById("home");
-home.addEventListener("click", scrollHome);
-function scrollHome() { window.scrollTo({top: 0, behavior: "smooth"}); }
-
+let phone = false;
 // Remove Pico-8 if on a mobile device
 if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   let mobile = document.getElementById("gem-mobile");
   let gem = document.getElementById("gem-container");
   mobile.style.display = "block";
   gem.style.display = "none";
+  phone = true;
+}
+
+let home = document.getElementById("home");
+home.addEventListener("click", scrollHome);
+function scrollHome() {
+  if (!phone) {
+    window.scrollTo({top: 0, behavior: "smooth"});
+  } else {
+    recurse();
+  }
+}
+
+// Scroll fails on phones, this solution "fixes" it
+function recurse() {
+  if (window.pageYOffset > 5) {
+    window.pageYOffset;
+    window.scrollTo({top: window.pageYOffset - 15});
+    setTimeout(recurse, 1);
+  }
 }
