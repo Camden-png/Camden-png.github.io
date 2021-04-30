@@ -47,6 +47,13 @@ h2 { font-size: 64px; }
   animation-duration: 4s;
 }
 
+#h3-mobile {
+  display: none;
+  margin-top: 1%;
+  animation-name: appear;
+  animation-duration: 4s;
+}
+
 #h4 {
   margin-top: 2%;
   animation-name: appear;
