@@ -25,7 +25,6 @@ function scroll() {
     for (let i = 0; i < array.length; i++) {
       let element = document.getElementById(array[i]);
       element.style.animation = "appear 0s";
-      element.style.animation = "javascript 1s";
     }
   }
 }
