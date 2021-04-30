@@ -38,11 +38,30 @@ if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini
   phone = true;
 }
 
+// let home = document.getElementById("home");
+// home.addEventListener("click", scrollHome);
+// function scrollHome() {
+//   window.scrollTo({top: 0, behavior: "smooth"});
+//   if (phone) { home.style.animation = "button 0s"; }
+// }
+
 let home = document.getElementById("home");
 home.addEventListener("click", scrollHome);
 function scrollHome() {
-  window.scrollTo({top: 0, behavior: "smooth"});
-  if (phone) { home.style.animation = "button 0s"; }
+  if (!phone) {
+    window.scrollTo({top: 0, behavior: "smooth"});
+  } else {
+    home.style.animation = "button 0s";
+    recurse();
+  }
+}
+
+function recurse() {
+  if (window.pageYOffset > 5) {
+    window.pageYOffset;
+    window.scrollTo({top: window.pageYOffset - 15});
+    setTimeout(recurse, 1);
+  }
 }
 
 let string = "Artist | Video-Editor<br>Programmer | Game Designer";
@@ -53,7 +72,7 @@ window.addEventListener("resize", resizeWindow);
 resizeWindow();
 function resizeWindow() {
   let value = document.getElementById("javascript-value");
-  value = window.getComputedStyle(value)
+  value = window.getComputedStyle(value);
   value = value.getPropertyValue("font-size");
   value = parseFloat(value);
   if (value == 1) {
