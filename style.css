@@ -292,4 +292,9 @@ a:hover {
 @media (max-width: 496px) {
   h4 { margin-left: 5px; }
   .summary { max-width: 80%; }
+  #javascript-value { font-size: 1px; }
+}
+
+@media (max-width: 472px) {
+  #javascript-value { font-size: 1px; }
 }

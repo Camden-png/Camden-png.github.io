@@ -30,7 +30,6 @@ function scroll() {
 }
 
 let phone = false;
-// Remove Pico-8 if on a mobile device
 if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   let mobile = document.getElementById("gem-mobile");
   let gem = document.getElementById("gem-container");
@@ -44,4 +43,20 @@ home.addEventListener("click", scrollHome);
 function scrollHome() {
   window.scrollTo({top: 0, behavior: "smooth"});
   if (phone) { home.style.animation = "button 0s"; }
+}
+
+let string = "Artist | Video-Editor<br>Programmer | Game Designer";
+let h3 = document.getElementById("h3");
+
+window.addEventListener("resize", resizeWindow);
+function resizeWindow() {
+  let value = document.getElementById("javascript-value");
+  value = window.getComputedStyle(value)
+  value = value.getPropertyValue("font-size");
+  value = parseFloat(value);
+  if (value == 1) {
+    h3.innerHTML = string;
+  } else {
+    h3.innerHTML = string.replace("<br>", " | ");
+  }
 }
