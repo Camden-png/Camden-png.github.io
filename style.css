@@ -287,14 +287,10 @@ a:hover {
   * { font-size: 20px; }
   h2 { font-size: 40px; }
   h5 { font-size: 41px; }
+  #javascript-value { font-size: 1px; }
 }
 
 @media (max-width: 496px) {
   h4 { margin-left: 5px; }
   .summary { max-width: 80%; }
-  #javascript-value { font-size: 1px; }
-}
-
-@media (max-width: 472px) {
-  #javascript-value { font-size: 1px; }
 }
