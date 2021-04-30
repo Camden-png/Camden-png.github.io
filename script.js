@@ -49,6 +49,8 @@ let string = "Artist | Video-Editor<br>Programmer | Game Designer";
 let h3 = document.getElementById("h3");
 
 window.addEventListener("resize", resizeWindow);
+
+resizeWindow();
 function resizeWindow() {
   let value = document.getElementById("javascript-value");
   value = window.getComputedStyle(value)
