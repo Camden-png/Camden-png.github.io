@@ -210,14 +210,14 @@ h6 {
 #mini {
   max-width: 50%;
   max-height: 50%;
-  min-width: 180px;
+  min-width: 260px;
   margin-top: 0.5%;
 }
 
 #large {
   max-width: 75%;
   max-height: 75%;
-  min-width: 280px;
+  min-width: 360px;
   margin-top: 1%;
 }
 
