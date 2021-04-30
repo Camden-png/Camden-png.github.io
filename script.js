@@ -42,18 +42,6 @@ if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini
 let home = document.getElementById("home");
 home.addEventListener("click", scrollHome);
 function scrollHome() {
-  if (!phone) {
-    window.scrollTo({top: 0, behavior: "smooth"});
-  } else {
-    recurse();
-  }
-}
-
-// Scroll fails on phones, this solution "fixes" it
-function recurse() {
-  if (window.pageYOffset > 5) {
-    window.pageYOffset;
-    window.scrollTo({top: window.pageYOffset - 15});
-    setTimeout(recurse, 1);
-  }
+  window.scrollTo({top: 0, behavior: "smooth"});
+  if (phone) { home.style.animation = "button 0s"; }
 }
