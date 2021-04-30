@@ -38,13 +38,6 @@ if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini
   phone = true;
 }
 
-// let home = document.getElementById("home");
-// home.addEventListener("click", scrollHome);
-// function scrollHome() {
-//   window.scrollTo({top: 0, behavior: "smooth"});
-//   if (phone) { home.style.animation = "button 0s"; }
-// }
-
 let home = document.getElementById("home");
 home.addEventListener("click", scrollHome);
 function scrollHome() {
