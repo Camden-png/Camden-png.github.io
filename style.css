@@ -269,34 +269,6 @@ a:hover {
   }
 }
 
-/* @keyframes reset {
-  50% {
-    top: 7.5px;
-    right: 1.75%;
-    padding: 7px;
-    font-size: 26px;
-    border-radius: 19px;
-  }
-  100% {
-    top: 10px;
-    right: 2%;
-    padding: 5px;
-    font-size: 24px;
-    border-radius: 15px;
-  }
-} */
-
-@keyframes reset {
-  0% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 100%;
-  }
-
-
-}
-
 @keyframes move {
   0% { opacity: 0%; transform: translateY(calc(var(--height) * 1.5)); }
   50% { transform: translateY(-5px); }

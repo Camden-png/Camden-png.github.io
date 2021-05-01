@@ -29,20 +29,26 @@ function scroll() {
   }
 }
 
+let phone = false;
 if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   let mobile = document.getElementById("gem-mobile");
   let gem = document.getElementById("gem-container");
   mobile.style.display = "block";
   gem.style.display = "none";
+  phone = true;
 }
 
 let home = document.getElementById("home");
-home.addEventListener("touchstart", scrollPhone);
-home.addEventListener("click", scrollDesktop);
+home.addEventListener("click", scrollHome);
 
-function scrollPhone() { recurse(); }
-
-function scrollDesktop() { window.scrollTo({top: 0, behavior: "smooth"}); }
+function scrollHome() {
+  if (!phone) {
+    window.scrollTo({top: 0, behavior: "smooth"});
+  } else {
+    home.style.animation = "button 0s";
+    recurse();
+  }
+}
 
 function recurse() {
   if (window.pageYOffset > 1) {
