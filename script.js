@@ -51,7 +51,7 @@ function scrollHome() {
 }
 
 function recurse() {
-  if (window.pageYOffset > 1) {
+  if (window.pageYOffset > 5) {
     window.pageYOffset;
     window.scrollTo({top: window.pageYOffset - 15});
     setTimeout(recurse, 1);
