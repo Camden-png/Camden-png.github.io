@@ -7,7 +7,6 @@ html, body {
 
 body {
     display: flex;
-    overflow-x: hidden;
     align-items: center;
     flex-direction: column;
 }
@@ -49,6 +48,7 @@ body {
 #gemleft, #gemright {
     top: 500px;
     position: absolute;
+    pointer-events: none;
 }
 
 #gemleft { left: 0px; }
