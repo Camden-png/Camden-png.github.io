@@ -1,0 +1,157 @@
+* { font-family: "Varela Round", sans-serif; }
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    overflow-x: hidden;
+    align-items: center;
+    flex-direction: column;
+}
+
+#top {
+    width: 100%;
+    height: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+}
+
+#camden { margin-bottom: 10px; }
+
+#name {
+    width: 50%;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#about {
+    width: 80%;
+    font-size: 28px;
+}
+
+#middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gemleft, #gemright {
+    top: 500px;
+    position: absolute;
+}
+
+#gemleft { left: 0px; }
+
+#gemright { right: 0px; }
+
+h1 {
+    color: black;
+    font-size: 32px;
+}
+
+.row {
+    color: black;
+    font-size: 22px;
+}
+
+.language {
+    width: 108px;
+    margin-right: 4px;
+    text-align: right;
+    display: inline-block;
+}
+
+.gray { color: lightgray; }
+
+.spacer { margin-bottom: 80px; }
+
+#resume {
+    margin-top: 8px;
+}
+
+.info {
+    width: 80%;
+    color: black;
+    font-size: 22px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.video-resize {
+    width: 100%;
+    max-width: 60%;
+    margin-top: 6px;
+    min-width: 280px;
+}
+
+.video-container {
+    width: 100%;
+    padding-top: 56.25%;
+    position: relative;
+}
+
+.video-responsive {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#bottom {
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: auto;
+    margin-right: auto;
+    background-color: black;
+}
+
+#inside * {
+    width: auto;
+    height: 60px;
+}
+
+#inside {
+    gap: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#camden, #name, #about, #middle { visibility: hidden; }
+
+#gemleft, #gemright { display: none; }
+
+@keyframes appear {
+  0% { opacity: 0%; }
+  100% { opacity: 100%; }
+}
+
+@keyframes disappear {
+  0% { opacity: 100%; }
+  100% { opacity: 0%; }
+}
+
+@media (min-width: 472px) {
+    .info { width: 380px; }
+}
+
+@media (min-width: 1000px) {
+    #inside { gap: 100px };
+}
