@@ -71,12 +71,12 @@ function resize_window() {
         about.innerHTML = original;
     }
     if (desktop) {
-        if (visible == "block" && width <= 1390) {
+        if (visible == "block" && width <= 1220) {
             gemleft.style.animation = "disappear 1s linear";
             setTimeout(gemleft_hide, 999);
             gemright.style.animation = "disappear 1s linear";
             setTimeout(gemright_hide, 999);
-        } else if (visible == "none" && width > 1390) {
+        } else if (visible == "none" && width > 1220) {
             gemleft.style.animation = "appear 1s linear";
             gemleft.style.display = "block";
             gemright.style.animation = "appear 1s linear";

@@ -250,7 +250,29 @@ li { padding-bottom: 8px; }
 
 @media (max-width: 552px) {
     .header {text-align: center;}
-    .job2 { width: 60%; }
-    .job3, .job4 { width: 80%; }
+    .job3 { width: 70%; }
+    .job4 { width: 70%; }
     .dark { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+    .job2 { width: 60%; }
+}
+
+@media (max-width: 438px) {
+    .job4 { width: 80%; }
+}
+
+@media (max-width: 402px) {
+    .job2 { width: 80%; }
+    .job3 { width: 80%; }
+}
+
+@media (max-width: 392px) {
+    .job1 { width: 60%; }
+    .job4 { width: 90%; }
+}
+
+@media (max-width: 361px) {
+    .job1 { width: 80%; }
 }
