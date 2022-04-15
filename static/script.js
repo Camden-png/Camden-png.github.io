@@ -8,7 +8,9 @@ let right = document.getElementById("gemright");
 let camden = document.getElementById("camden");
 let name = document.getElementById("name");
 let about = document.getElementById("about");
+let social = document.getElementById("socials");
 let middle = document.getElementById("middle");
+let inside = document.getElementById("inside");
 
 let desktop = true;
 if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -34,16 +36,25 @@ if (!debug) {
         about.style.animation = "appear 1s linear";
         about.style.visibility = "visible";
     }
-    setTimeout(middle_wait, 2100);
+    setTimeout(social_wait, 2100);
+    function social_wait() {
+        social.style.animation = "appear 1s linear";
+        social.style.visibility = "visible";
+    }
+    setTimeout(middle_wait, 2700);
     function middle_wait() {
         middle.style.animation = "appear 1s linear";
         middle.style.visibility = "visible";
+        inside.style.animation = "appear 1s linear";
+        inside.style.visibility = "visible";
     }
 } else {
     camden.style.visibility = "visible";
     name.style.visibility = "visible";
     about.style.visibility = "visible";
+    social.style.visibility = "visible";
     middle.style.visibility = "visible";
+    inside.style.visibility = "visible";
 }
 
 function gemleft_hide() { gemleft.style.display = "none"; }
@@ -60,12 +71,12 @@ function resize_window() {
         about.innerHTML = original;
     }
     if (desktop) {
-        if (visible == "block" && width <= 1090) {
+        if (visible == "block" && width <= 1390) {
             gemleft.style.animation = "disappear 1s linear";
-            setTimeout(gemleft_hide, 1000);
+            setTimeout(gemleft_hide, 999);
             gemright.style.animation = "disappear 1s linear";
-            setTimeout(gemright_hide, 1000);
-        } else if (visible == "none" && width > 1090) {
+            setTimeout(gemright_hide, 999);
+        } else if (visible == "none" && width > 1390) {
             gemleft.style.animation = "appear 1s linear";
             gemleft.style.display = "block";
             gemright.style.animation = "appear 1s linear";

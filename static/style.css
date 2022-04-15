@@ -37,9 +37,24 @@ body {
 #about {
     width: 80%;
     font-size: 28px;
+    margin-bottom: 35px;
+}
+
+#socials * {
+    width: auto;
+    height: 45px;
+}
+
+#socials {
+    gap: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #middle {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,10 +78,12 @@ h1 {
 .row {
     color: black;
     font-size: 22px;
+    margin-right: 34px;
 }
 
 .language {
     width: 108px;
+    width: 178px;
     margin-right: 4px;
     text-align: right;
     display: inline-block;
@@ -74,11 +91,87 @@ h1 {
 
 .gray { color: lightgray; }
 
+.dark {
+    margin-bottom: 12px;
+    text-align: center;
+    color: gray;
+}
+
+.small { font-size: 16px; }
+
 .spacer { margin-bottom: 80px; }
 
-#resume {
-    margin-top: 8px;
+#resume, #camden { pointer-events: none; }
+
+#resume { margin-top: 8px; }
+
+.job {
+    width: 80%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 24px;
+    color: black;
+    font-size: 22px;
 }
+
+.last_job { margin-bottom: 0px; }
+
+.header {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title { font-weight: bold; }
+
+hr {
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-width: 1px;
+    border-color: black;
+    border-style: inset;
+}
+
+.points {
+    width: 100%;
+    margin-left: 16px;
+}
+
+li { padding-bottom: 8px; }
+
+.last_li { padding-bottom: 0px; }
+
+#side_by_side {
+    gap: 12px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.img_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#level { width: 98%; }
+
+#alera { width: 50%; }
+
+#present1 { width: 80%; }
+
+#present2 { width: 100%; }
+
+#less { width: 78%; }
+
+.image { width: 100%; }
+
+#totb { margin-top: auto; }
+
+#order { width: 60%; }
 
 .info {
     width: 80%;
@@ -89,10 +182,9 @@ h1 {
 }
 
 .video-resize {
-    width: 100%;
-    max-width: 60%;
+    width: 80%;
+    max-width: 400px;
     margin-top: 6px;
-    min-width: 280px;
 }
 
 .video-container {
@@ -134,7 +226,7 @@ h1 {
     justify-content: center;
 }
 
-#camden, #name, #about, #middle { visibility: hidden; }
+#camden, #name, #about, #socials, #middle, #inside { visibility: hidden; }
 
 #gemleft, #gemright { display: none; }
 
@@ -154,4 +246,11 @@ h1 {
 
 @media (min-width: 1000px) {
     #inside { gap: 100px };
+}
+
+@media (max-width: 552px) {
+    .header {text-align: center;}
+    .job2 { width: 60%; }
+    .job3, .job4 { width: 80%; }
+    .dark { font-size: 14px; }
 }
