@@ -171,7 +171,7 @@ li { padding-bottom: 8px; }
 
 #totb { margin-top: auto; }
 
-#order { width: 60%; }
+#order { width: 80%; }
 
 .info {
     width: 80%;
@@ -250,6 +250,10 @@ li { padding-bottom: 8px; }
 
 @media (max-width: 850px) {
     .video-resize { max-width: 400px; }
+}
+
+@media (max-width: 600px) {
+    #order { width: 100%; }
 }
 
 @media (max-width: 552px) {
