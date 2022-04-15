@@ -161,7 +161,7 @@ li { padding-bottom: 8px; }
 
 #alera { width: 50%; }
 
-#present1 { width: 80%; }
+#present1 { width: 100%; }
 
 #present2 { width: 100%; }
 
@@ -183,7 +183,7 @@ li { padding-bottom: 8px; }
 
 .video-resize {
     width: 80%;
-    max-width: 400px;
+    max-width: 700px;
     margin-top: 6px;
 }
 
@@ -245,11 +245,15 @@ li { padding-bottom: 8px; }
 }
 
 @media (min-width: 1000px) {
-    #inside { gap: 100px };
+    #inside { gap: 100px; }
+}
+
+@media (max-width: 850px) {
+    .video-resize { max-width: 400px; }
 }
 
 @media (max-width: 552px) {
-    .header {text-align: center;}
+    .header { text-align: center; }
     .job3 { width: 70%; }
     .job4 { width: 70%; }
     .dark { font-size: 14px; }
