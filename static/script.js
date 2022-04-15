@@ -1,6 +1,6 @@
 "use strict";
 
-let debug = true;
+let debug = false;
 
 let original = "Game Designer | Programmer | Artist"
 let left = document.getElementById("gemleft");
