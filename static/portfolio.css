@@ -122,10 +122,9 @@ u { text-underline-position: under; }
 
 .member_info .title { text-align: left; }
 
-.member_last {
-    margin-top: 16px;
-    margin-bottom: 0px;
-}
+#member_last { margin-bottom: 0px; }
+
+#middle * { align-self: baseline; }
 
 #middle {
     width: 80%;
@@ -151,16 +150,10 @@ u { text-underline-position: under; }
 .game {
     width: 100%;
     max-width: 384px;
-    align-self: baseline;
     margin-bottom: 20px;
 }
 
-.big_game {
-    width: 100%;
-    max-width: 600px;
-    align-self: baseline;
-    margin-bottom: 20px;
-}
+.big_game { max-width: 600px; }
 
 .big_game img { height: 384px; }
 
