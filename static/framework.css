@@ -1,0 +1,25 @@
+* { font-family: "Varela Round", sans-serif; }
+
+img { pointer-events: none; }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: black;
+}
+
+#middle {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #43C95F;
+    font-size: 32px;
+
+    text-align: center;
+}
