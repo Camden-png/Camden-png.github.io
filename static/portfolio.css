@@ -208,6 +208,7 @@ u { text-underline-position: under; }
     .big { font-size: 32px; }
     .header {font-size: 32px; }
     .member_info { text-align: center; }
+    .about, .member_info { font-size: 18px; }
 }
 
 @media (max-width: 380px) {
