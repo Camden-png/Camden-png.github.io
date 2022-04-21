@@ -223,7 +223,7 @@ u { text-underline-position: under; }
 
 .game { transition: all .2s ease-in-out; }
 
-.game:hover { transform: scale(1.05); }
+.game:hover { transform: scale(1.095); }
 
 .social { transition: all .2s ease-in-out; }
 
