@@ -41,7 +41,7 @@ body {
     flex-direction: column;
 
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 65px;
 }
 
 #camden {
@@ -78,7 +78,18 @@ u { text-underline-position: under; }
     gap: 20px;
     display: flex;
     justify-content: center;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
+}
+
+#resume_a {
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 80px;
+}
+
+#resume {
+    width: 100%;
+    transform: scale(0.98);
 }
 
 #squad {
@@ -228,3 +239,7 @@ u { text-underline-position: under; }
 .social { transition: all .2s ease-in-out; }
 
 .social:hover { transform: scale(1.2); }
+
+#resume_a { transition: all .2s ease-in-out; }
+
+#resume_a:hover { transform: scale(1.092); }
