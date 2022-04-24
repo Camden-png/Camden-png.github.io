@@ -224,6 +224,8 @@ hr {
     margin-bottom: 4px;
 }
 
+.last_gif { margin-bottom: 0px; }
+
 #enemy_design {
     width: 100%;
     margin-bottom: 40px;
