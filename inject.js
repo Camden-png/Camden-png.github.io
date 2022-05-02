@@ -59,7 +59,7 @@ switch(page) {
         itch_description = "Moral A.I. by Camden";
         break;
     case "button":
-        title = "The Button";
+        title = "THE BUTTON";
         link = "https://l-mop.itch.io/button-bot";
         dates = "11/4/20 - 1/26/21";
         status = "Released";
