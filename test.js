@@ -16,5 +16,7 @@ let css_inject = `
 <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
 <link href = "https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel = "stylesheet">`;
 
+console.log(document.head.innerHTML);
+
 css_inject += document.head.innerHTML;
 document.head.innerHTML = css_inject;
