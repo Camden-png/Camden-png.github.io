@@ -58,6 +58,17 @@ switch(page) {
         itch_number = "1498665";
         itch_description = "Moral A.I. by Camden";
         break;
+    case "boba":
+        title = "BUBBLE TROUBLE BOBA SHOP";
+        link = "https://devirtualized.itch.io/bubble-trouble-boba-shop";
+        dates = "3/18/22 - 3/21/22<br>(Global Game Jam)";
+        status = "Released";
+        roles = "Game Designer, Artist, Musician (Gameover Song)";
+        teammates = "Yi (Scripting), Athena (Bubbly Song), Michael (Metal Song), Morgan (Game Designer & Extra Art)";
+        description = "Goth Goat and Kawaii Kitty have started a boba shop but are now faced with an exponentially growing number of orders. Help this couple of adorably opposite aesthetics serve drinks and make cash, cash, money!";
+        itch_number = "1378192";
+        itch_description = "Bubble Trouble Boba Shop by devirtualized, mcreek, Camden, UwU Michael, Yi";
+        break;
     case "button":
         title = "THE BUTTON";
         link = "https://l-mop.itch.io/button-bot";
@@ -68,6 +79,13 @@ switch(page) {
         description = "a 10 (ish)-hour countdown has begun... the only way to stop the game from ending is to press the button... but each press teleports you to a new realm!";
         itch_number = "1070483";
         itch_description = "Button-Bot by L-Mop and Camden";
+        break;
+    case "blobert":
+        title = "BLOBERT";
+        dates = "6/5/20 - 9/27/20";
+        status = "Privately Released to GDAC Club"
+        roles = "Game Designer, Scripter, Artist";
+        description = "Demonville (occupancy: 3) is in need of assistance! Join Blobert in their quest to find lost pets, discover chests, and build snowmen to cheer up this gloomy town";
         break;
     case "haunt":
         title = "Haunt Camden";
