@@ -311,3 +311,11 @@ h2 {
     margin-top: 10px;
   }
 }
+
+/* Weird fix... */
+@supports (-webkit-touch-callout: none) {
+  #itch iframe, #soundcloud iframe {
+    transform: scale(1.5);
+    transform-origin: top left;
+  }
+}
