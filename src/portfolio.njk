@@ -27,9 +27,9 @@ about: Indie Game Developer
   <div id="games">
     {% set games = [
       {
+        square: true,
         id: "insatiable",
         title: "Insatiable",
-        square: true,
         image: "/static/portfolio/media/Insatiable.gif",
         link: "/insatiable",
         about: "Allowen the vampire desires a treat after his century-long slumber... but, without humans, will he ever satisfy his ravenous hunger?",
@@ -38,6 +38,7 @@ about: Indie Game Developer
         engine: "Pico-8 (Lua)"
       },
       {
+        id: "bad-libs",
         title: "Bad Libs",
         max_width: "500px",
         image: "/static/portfolio/media/Lingo.gif",
@@ -48,9 +49,10 @@ about: Indie Game Developer
         engine: "Pure JS"
       },
       {
+        square: true,
+        id: "two-kingdoms",
         title: "Two Kingdoms",
         image: "/static/portfolio/media/TwoKingdoms.gif",
-        square: true,
         link: "https://camden-png.itch.io/two-kingdoms",
         about: "play as two kingdoms trapped in an endless cycle of revenge",
         roles: "programmer, game designer (secondary), pixel artist (primary)",
@@ -69,8 +71,9 @@ about: Indie Game Developer
         engine: "Godot (GDScript)"
       },
       {
-        title: "Climb Slimes",
         square: true,
+        id: "climb-slimes",
+        title: "Climb Slimes",
         image: "/static/portfolio/media/ClimbSlimes.gif",
         link: "https://camden-png.itch.io/two-kingdoms",
         about: "climb layers of goo in a last ditch effort to return to the Moon, your home",
@@ -79,8 +82,9 @@ about: Indie Game Developer
         engine: "Pico-8 (Lua)"
       },
       {
-        title: "Where Flowers Bloom",
         square: true,
+        id: "flower",
+        title: "Where Flowers Bloom",
         image: "/static/portfolio/media/Flower.gif",
         link: "https://camden-png.itch.io/where-flowers-bloom",
         about: "pause reality to forge your path forward & find salvation from the blood rain...",
@@ -89,6 +93,7 @@ about: Indie Game Developer
         engine: "Pico-8 (Lua)"
       },
       {
+        id: "oab",
         title: "Oops! All Bards",
         max_width: "700px",
         image: "/static/portfolio/media/OOPs.gif",
@@ -110,8 +115,9 @@ about: Indie Game Developer
         engine: "Unity (C#)"
       },
       {
-        title: "Moral AI",
         square: true,
+        id: "moral-ai",
+        title: "Moral AI",
         image: "/static/portfolio/media/Moral.gif",
         link: "https://camden-png.itch.io/moral-ai",
         about: 'as an unbiased government AI, you are tasked with determining if CIA proposals are ethical... until all you can say is "YES"',
@@ -120,8 +126,9 @@ about: Indie Game Developer
         engine: "Pico-8 (Lua)"
       },
       {
-        title: "Haunt Camden",
         square: true,
+        id: "haunt",
+        title: "Haunt Camden",
         image: "/static/portfolio/media/Haunt.gif",
         link: "https://camden-png.itch.io/haunt-camden",
         about: "as a spirit from beyond the grave, your job is to terrify people! Too bad you got sent to Camden's house...",

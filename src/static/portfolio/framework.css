@@ -312,7 +312,7 @@ h2 {
   }
 }
 
-/* Weird fix... */
+/* Fix zoom scalining issue on iOS */
 @supports (-webkit-touch-callout: none) {
   #itch iframe, #soundcloud iframe {
     transform: scale(1.25);

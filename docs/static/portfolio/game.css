@@ -86,3 +86,11 @@
     max-height: 95vw;
   }
 }
+
+#bad-libs > a > img {
+  max-height: 80vw;
+}
+
+#funny-game > a > img {
+  max-height: 80vw;
+}
