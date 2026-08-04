@@ -41,7 +41,7 @@
 /* Weird fix... */
 @supports (-webkit-touch-callout: none) {
   .video-responsive {
-    transform: scale(1.5);
+    transform: scale(1.25);
     transform-origin: top left;
   }
 }
