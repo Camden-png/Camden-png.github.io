@@ -24,7 +24,7 @@ html, body {
 }
 
 body {
-  zoom: 0.8;
+  /* zoom: 0.8; */
   display: flex;
   align-items: center;
   flex-direction: column;
