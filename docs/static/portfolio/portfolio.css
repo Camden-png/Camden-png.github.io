@@ -20,7 +20,7 @@ html, body {
 }
 
 body {
-  /* zoom: 0.8; */
+  zoom: 0.8;
   display: flex;
   flex-direction: column;
   align-items: center;
