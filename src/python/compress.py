@@ -1,0 +1,264 @@
+import glob
+import os
+import shutil
+import subprocess
+
+from PIL import Image, ImageSequence
+
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(os.path.dirname(SCRIPT_DIR))
+INPUT_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), "static")
+OUTPUT_DIR = os.path.join(ROOT_DIR, "docs", "static")
+
+# Check if `gifsicle` is available...
+HAS_GIFSICLE = False
+try:
+    subprocess.run(["gifsicle", "--version"], capture_output=True, check=True)
+    print("* Has `gifsicle`...")
+    HAS_GIFSICLE = True
+except (subprocess.CalledProcessError, FileNotFoundError):
+    pass
+
+PNG = ".png"
+GIF = ".gif"
+
+COMPRESS_LEVEL = 9
+GIF_COLORS = 32
+GIF_COLOR_OVERRIDES = {
+    "OOPs.gif": 128,
+    "Lingo.gif": 80,
+    "Boba.gif": 80
+}
+
+# Scale and drop frames for large GIFs
+LARGE_GIF_THRESHOLD = 500 * 1024
+SCALE_FACTOR = 0.5
+
+FRAME_SKIP = 2  # Keep every other frame
+NO_FRAME_SKIP = ["Boba.gif"]
+
+# GIFs to ignore (skip compression entirely)
+IGNORE_GIFS = ["Talk.gif", "Eat.gif"]
+
+# Pixel art GIFs that should use nearest-neighbor scaling
+PIXEL_ART_GIFS = [
+    "GemLeft.gif",
+    "GemRight.gif",
+    "Pause.gif",
+    "Pinky.gif",
+    "Squib.gif",
+    "Ducky.gif",
+    "Insatiable.gif",
+    "Flower.gif",
+    "Moral.gif",
+    "ClimbSlimes.gif"
+]
+
+
+# Optimize GIF with gifsicle (lossless or lossy)
+def _scale_image(image: Image.Image, factor: float, use_nearest: bool = False) -> Image.Image:
+    new_size = (int(image.width * factor), int(image.height * factor))
+    resampling = Image.Resampling.NEAREST if use_nearest else Image.Resampling.LANCZOS
+    return image.resize(new_size, resampling)
+
+
+def _optimize_with_gifsicle(output_path: str, lossy: bool = False) -> None:
+    if not HAS_GIFSICLE:
+        return
+
+    args = ["gifsicle", "--optimize=3"]
+    if lossy:
+        args.append("--lossy=80")
+    args += ["-o", output_path, output_path]
+
+    try:
+        subprocess.run(args, check=True, capture_output=True)
+    except subprocess.CalledProcessError:
+        pass
+
+
+def _compress_gif(input_path: str, output_path: str, colors: int) -> None:
+    file_size = os.path.getsize(input_path)
+    file_name = os.path.basename(input_path)
+
+    # Skip compression for ignored GIFs
+    if file_name in IGNORE_GIFS:
+        shutil.copy(input_path, output_path)
+        return
+
+    with Image.open(input_path) as gif:
+        # Detect transparency
+        first_frame = next(ImageSequence.Iterator(gif))
+        has_transparency = (
+            "transparency" in gif.info
+            or "transparency" in first_frame.info
+            or gif.mode == "RGBA"
+        )
+
+        gif.seek(0)
+
+        # Determine strategy
+        is_palette = gif.mode == "P"
+        is_palette_transparent = is_palette and has_transparency
+        is_large = file_size > LARGE_GIF_THRESHOLD and not is_palette_transparent
+        is_pixel_art = file_name in PIXEL_ART_GIFS
+
+        # Palette reference for standard palette GIFs
+        palette_image = None
+        if is_palette:
+            palette_image = gif.copy()
+            if is_large:
+                palette_image = _scale_image(palette_image, SCALE_FACTOR, is_pixel_art)
+
+        # Process frames
+        frames = []
+        durations = []
+
+        for frame_idx, frame in enumerate(ImageSequence.Iterator(gif)):
+            # Frame skipping
+            should_skip = is_large and file_name not in NO_FRAME_SKIP and frame_idx % FRAME_SKIP != 0
+            if should_skip:
+                continue
+
+            # Duration
+            duration = frame.info.get("duration", gif.info.get("duration", 100))
+            if is_large and file_name not in NO_FRAME_SKIP:
+                duration *= FRAME_SKIP
+            durations.append(duration)
+
+            # Scaling
+            if is_large:
+                frame = _scale_image(frame, SCALE_FACTOR, is_pixel_art)
+
+            # Quantization
+            if is_palette:
+                rgb = frame.convert("RGB")
+                frames.append(rgb.quantize(palette=palette_image))
+            elif has_transparency:
+                rgba = frame.convert("RGBA")
+                frames.append(
+                    rgba.quantize(colors=colors, method=Image.Quantize.FASTOCTREE)
+                )
+            else:
+                rgb = frame.convert("RGB")
+                frames.append(
+                    rgb.quantize(colors=colors, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.FLOYDSTEINBERG)
+                )
+
+        # Save
+        save_kwargs = {
+            "save_all": True,
+            "optimize": not is_palette,
+            "append_images": frames[1:],
+            "duration": durations,
+            "loop": gif.info.get("loop", 0)
+        }
+
+        if has_transparency:
+            if is_palette:
+                save_kwargs["transparency"] = gif.info.get("transparency", 0)
+            else:
+                gif.seek(0)
+
+                rgba_check = gif.convert("RGBA")
+                alpha = rgba_check.split()[3]
+                trans_index = 0
+
+                found = False
+                for y in range(alpha.size[1]):
+                    for x in range(alpha.size[0]):
+                        if alpha.getpixel((x, y)) == 0:
+                            trans_index = frames[0].getpixel((x, y))
+                            found = True
+                            break
+                    if found:
+                        break
+
+                save_kwargs["transparency"] = trans_index
+
+            save_kwargs["disposal"] = 2
+
+        frames[0].save(output_path, **save_kwargs)
+
+    # Gifsicle
+    use_lossy = not is_palette
+    _optimize_with_gifsicle(output_path, lossy=use_lossy)
+
+
+def _compress_png(input_path: str, output_path: str) -> None:
+    with Image.open(input_path) as image:
+        if image.mode in ["RGBA", "LA", "PA"]:
+            clean = image.convert("RGBA")
+            quantized = clean.quantize(colors=256, method=Image.Quantize.FASTOCTREE)
+            quantized.save(output_path, optimize=True, compress_level=COMPRESS_LEVEL)
+        elif image.mode == "P" and "transparency" in image.info:
+            clean = image.convert("RGBA")
+            quantized = clean.quantize(colors=256, method=Image.Quantize.FASTOCTREE)
+            quantized.save(output_path, optimize=True, compress_level=COMPRESS_LEVEL)
+        else:
+            # For RGB images, quantize to reduce colors
+            clean = image.convert("RGB")
+            quantized = clean.quantize(colors=256, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.FLOYDSTEINBERG)
+            quantized.save(output_path, optimize=True, compress_level=COMPRESS_LEVEL)
+
+
+def main() -> None:
+    file_paths = (
+        glob.glob(os.path.join(INPUT_DIR, "**", "*.png"), recursive=True) +
+        glob.glob(os.path.join(INPUT_DIR, "**", "*.gif"), recursive=True)
+    )
+
+    total_before = 0
+    total_after = 0
+
+    for input_path in file_paths:
+        relative_path = os.path.relpath(input_path, INPUT_DIR)
+        output_path = os.path.join(OUTPUT_DIR, relative_path)
+
+        ext = os.path.splitext(input_path)[1].lower()
+
+        if ext not in [PNG, GIF]:
+            raise NotImplementedError(f"`{ext.upper()}` is not supported!")
+
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+        before_size = os.path.getsize(input_path)
+
+        if ext == PNG:
+            _compress_png(input_path, output_path)
+        elif ext == GIF:
+            file_name = os.path.basename(input_path)
+            colors = GIF_COLOR_OVERRIDES.get(file_name, GIF_COLORS)
+            _compress_gif(input_path, output_path, colors)
+
+        after_size = os.path.getsize(output_path)
+
+        if after_size >= before_size:
+            shutil.copy(input_path, output_path)
+            after_size = before_size
+            result = "kept original"
+        else:
+            change = (before_size - after_size) / before_size
+            result = f"{change:.1%} smaller"
+
+        total_before += before_size
+        total_after += after_size
+
+        print(
+            f"* {os.path.basename(output_path)}: "
+            f"{before_size / 1024:.1f} KB -> "
+            f"{after_size / 1024:.1f} KB "
+            f"({result})"
+        )
+
+    total_saved = (total_before - total_after) / total_before if total_before else 0
+    print(
+        f"Total: {total_before / 1024 / 1024:.2f} MB -> "
+        f"{total_after / 1024 / 1024:.2f} MB "
+        f"({total_saved:.1%} saved)"
+    )
+
+
+if __name__ == "__main__":
+    main()

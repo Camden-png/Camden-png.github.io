@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/static/general/top.css">
+
+<div id="top" style="background-color: {{ top_color | default('black') }}">
+  <img id="camden" src="{{ profile | default('/static/general/media/Camden.png') }}">
+
+  <p id="name">Camden Pettijohn</p>
+  <p id="about">{{ about }}</p>
+
+  <div id="socials" class="shadow">
+    <a
+      href="https://www.linkedin.com/in/camden-pettijohn/"
+      rel="noopener noreferrer"
+    >
+      <img id="linkedin" src="/static/general/media/LinkedIn.png">
+    </a>
+
+    <a
+      href="https://github.com/Camden-png/"
+      rel="noopener noreferrer"
+    >
+      <img id="github" src="/static/general/media/GitHub.png">
+    </a>
+
+    <a
+      href="https://camden-png.itch.io/"
+      rel="noopener noreferrer"
+    >
+      <img id="itchio" src="/static/general/media/ItchIo.png">
+    </a>
+  </div>
+</div>
+
+<div id="buttons" class="shadow">
+  <a href="/experience">
+    <div id="button_1">
+      <p>Job Experience</p>
+    </div>
+  </a>
+  <a href="/">
+    <div id="button_2">
+      <p>Home</p>
+    </div>
+  </a>
+  <a href="/portfolio">
+    <div id="button_3">
+      <p>My Games</p>
+    </div>
+  </a>
+</div>

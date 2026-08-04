@@ -1,0 +1,130 @@
+#spacer {
+  display: none;
+}
+
+#content {
+  width: 100%;
+  display: block;
+
+  margin-top: 30px;
+}
+
+#content .video-resize {
+  width: 100%;
+  max-width: 1000px;
+
+  margin-bottom: 20px;
+}
+
+img#talk, img#eat, img#pause {
+  width: 90%;
+  max-width: 400px;
+
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--green);
+
+  background-color: var(--green);
+}
+
+#content b {
+  font-weight: bold;
+  color: var(--green);
+}
+
+#content i {
+  font-style: italic;
+}
+
+#highlights {
+  text-align: left;
+}
+
+#highlights, #enemies, #puzzle-design, #content p, #content h2 {
+  line-height: 1.4;
+  text-box-trim: trim-both;
+}
+
+#highlights ul {
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+#summary, #mechanic1, #mechanic2, #enemies, #puzzle-design, #level2-summary {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+#summary > p, #puzzle-design > p {
+  margin-bottom: 12px;
+}
+
+#summary > p:last-of-type, #puzzle-design > p:last-of-type {
+  margin-bottom: 0;
+}
+
+#talk, #eat, #pause, #map {
+  margin-bottom: 4px;
+}
+
+.tagline {
+  color: gray;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.red {
+  font-weight: bold;
+  color: #FF004D;
+}
+
+.blue {
+  font-weight: bold;
+  color: #29ADFF;
+}
+
+#enemies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: left;
+
+  gap: 30px;
+}
+
+#enemies img {
+  width: 100%;
+  max-width: 160px;
+}
+
+#enemies > div {
+  width: 80%;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 20px;
+}
+
+img#map {
+  width: 100%;
+  max-width: 1000px;
+}
+
+@media (max-width: 415px) {
+  #enemies h2 {
+    text-align: center;
+  }
+  #enemies > div {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  #enemies > div > div:first-of-type h2 {
+    margin-bottom: 8px;
+  }
+}

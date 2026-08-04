@@ -1,0 +1,40 @@
+<div class="game"
+  {% if game.id %}
+    id="{{ game.id }}"
+  {% endif %}
+  {% if game.max_width %}
+    style="max-width: {{ game.max_width }}"
+  {% endif %}
+>
+  <a href="{{ game.link | default('/404') }}">
+    {% if game.image %}
+      <img src="{{ game.image }}">
+    {% endif %}
+
+    <h2>{{ game.title }}</h2>
+
+    <div>
+      <span><b>About:</b></span>
+      <span>{{ game.about }}</span>
+    </div>
+
+    <div>
+      <span><b>Roles:</b></span>
+      <span>{{ game.roles }}</span>
+    </div>
+
+    {% if game.team %}
+      <div>
+        <span><b>Team:</b></span>
+        <span>{{ game.team }}</span>
+      </div>
+    {% endif %}
+
+    {% if game.engine %}
+      <div>
+        <span><b>Engine:</b></span>
+        <span>{{ game.engine }}</span>
+      </div>
+    {% endif %}
+  </a>
+</div>

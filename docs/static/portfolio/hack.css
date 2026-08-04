@@ -1,0 +1,12 @@
+#hackright * {
+  right: 0;
+}
+
+#hackleft * {
+  left: 0;
+}
+
+.hack {
+  position: fixed;
+  top: 0;
+}

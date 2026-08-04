@@ -1,0 +1,21 @@
+* {
+  font-family: "Varela Round", sans-serif;
+  font-size: 32px;
+  color: var(--green);
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+html, body {
+  min-height: 100%;
+  background-color: black;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,176 @@
+---
+title: Camden Pettijohn
+stylesheet: /static/portfolio/portfolio.css
+permalink: /portfolio.html
+
+top_color: transparent
+profile: /static/portfolio/media/Goo.png
+about: Indie Game Developer
+---
+
+<!doctype html>
+<html lang="en">
+
+{% include "head.njk" %}
+<link rel="stylesheet" href="/static/portfolio/game.css">
+<link rel="stylesheet" href="/static/portfolio/member.css">
+
+<body>
+  {% include "top.njk" %}
+
+  {% include "hack.njk" %}
+
+  <u>
+    <h1>MY GAMES</h1>
+  </u>
+
+  <div id="games">
+    {% set games = [
+      {
+        id: "insatiable",
+        title: "Insatiable",
+        image: "/static/portfolio/media/Insatiable.gif",
+        link: "/insatiable",
+        about: "Allowen the vampire desires a treat after his century-long slumber... but, without humans, will he ever satisfy his ravenous hunger?",
+        roles: "programmer, game designer, pixel artist, musician",
+        team: "Camden, Grant, Erra",
+        engine: "Pico-8 (Lua)"
+      },
+      {
+        title: "Bad Libs",
+        max_width: "500px",
+        image: "/static/portfolio/media/Lingo.gif",
+        link: "https://camden-png.itch.io/bad-libs",
+        about: 'Dr. Lingo has created an evil version of "Mad Libs" called "Bad Libs", will you survive his devious game?',
+        roles: "programmer, game designer, artist, musician (secondary)",
+        team: "Camden, Grant",
+        engine: "Pure JS"
+      },
+      {
+        title: "Two Kingdoms",
+        image: "/static/portfolio/media/TwoKingdoms.gif",
+        link: "https://camden-png.itch.io/two-kingdoms",
+        about: "play as two kingdoms trapped in an endless cycle of revenge",
+        roles: "programmer, game designer (secondary), pixel artist (primary)",
+        team: "Camden, Grant",
+        engine: "Bitsy (JS)"
+      },
+      {
+        id: "funny-game",
+        title: "Funny Game",
+        max_width: "500px",
+        image: "/static/portfolio/media/FunnyGame.gif",
+        link: "/funny_game",
+        about: "a colorful puzzle adventure inspired by the Flash games of the early 2000s",
+        roles: "programmer, game designer, artist, musician (secondary)",
+        team: "Camden, Grant",
+        engine: "Godot (GDScript)"
+      },
+      {
+        title: "Climb Slimes",
+        image: "/static/portfolio/media/ClimbSlimes.gif",
+        link: "https://camden-png.itch.io/two-kingdoms",
+        about: "climb layers of goo in a last ditch effort to return to the Moon, your home",
+        roles: "programmer, game designer (secondary), pixel artist (primary)",
+        team: "Camden, Grant",
+        engine: "Pico-8 (Lua)"
+      },
+      {
+        title: "Where Flowers Bloom",
+        image: "/static/portfolio/media/Flower.gif",
+        link: "https://camden-png.itch.io/where-flowers-bloom",
+        about: "pause reality to forge your path forward & find salvation from the blood rain...",
+        roles: "programmer, game designer, pixel artist",
+        team: "Camden",
+        engine: "Pico-8 (Lua)"
+      },
+      {
+        title: "Oops! All Bards",
+        max_width: "700px",
+        image: "/static/portfolio/media/OOPs.gif",
+        link: "https://github.com/singlab/oops-all-bards",
+        about: "Oops! Everyone decided to be a bard in this AI role-playing game... form your party & engage in competitive gigs!",
+        roles: "game designer (secondary), level designer, programmer (secondary), artist",
+        team: "Camden, Kyle, Josh, Arunpreet",
+        engine: "Unity (C#)"
+      },
+      {
+        id: "boba",
+        title: "Bubble Trouble Boba Shop",
+        max_width: "640px",
+        image: "/static/portfolio/media/Boba.gif",
+        link: "/boba",
+        about: "Goth Goat & Kawaii Kitty have started a boba shop but are now faced with an exponentially growing number of orders! Help this adorably opposite aesthetics couple serve drinks & pay bills!",
+        roles: "game designer (secondary), artist, musician (secondary)",
+        team: "Camden, Yi, Athena, Michael, Morgan",
+        engine: "Unity (C#)"
+      },
+      {
+        title: "Moral AI",
+        image: "/static/portfolio/media/Moral.gif",
+        link: "https://camden-png.itch.io/moral-ai",
+        about: 'as an unbiased government AI, you are tasked with determining if CIA proposals are ethical... until all you can say is "YES"',
+        roles: "programmer, game designer, pixel artist",
+        team: "Camden",
+        engine: "Pico-8 (Lua)"
+      },
+      {
+        title: "Haunt Camden",
+        image: "/static/portfolio/media/Haunt.gif",
+        link: "https://camden-png.itch.io/haunt-camden",
+        about: "as a spirit from beyond the grave, your job is to terrify people! Too bad you got sent to Camden's house...",
+        roles: "programmer, game designer, pixel artist",
+        team: "Camden",
+        engine: "Bitsy (JS)"
+      }
+    ] %}
+
+    {% for game in games %}
+      {% include "game.njk" %}
+    {% endfor %}
+  </div>
+
+  <u>
+    <h1>FUNI STUDIOS</h1>
+  </u>
+  <p id="squad-info">
+    Aka, a squad of talented artists who make games! The members include:
+  </p>
+
+  <div id="squad">
+    {% set members = [
+      {
+        name: "Camden",
+        image: "/static/portfolio/media/Camden.gif",
+        about: "With a B.S. in Computer Science, years of indie game developer experience & an unhealthy amount of coffee flowing through their veins, Camden is ready to design, code & paint any games!",
+        specialties: "art, coding, game design"
+      },
+      {
+        name: "Grant",
+        image: "/static/portfolio/media/Grant.gif",
+        about: "After years of pressing buttons & making noises on a computer, Grant has become half human, half 808 drum machine!",
+        specialties: "music in FL Studio, SFX, game design"
+      },
+      {
+        name: "Athena",
+        image: "/static/portfolio/media/Athena.gif",
+        about: "After listening to the Owl City albums for the 5000th time, Athena has ascended to a being of pure melody!",
+        specialties: "music in Bitwig, being an Owl Citizen"
+      },
+      {
+        name: "Erra",
+        image: "/static/portfolio/media/Erra.gif",
+        about: 'An enigmatic entity... she came up with the name "FUNI Studios" & playtests all our games!',
+        specialties: "cracked ideas, playtesting"
+      }
+    ] %}
+
+    {% for member in members %}
+      {% include "member.njk" %}
+    {% endfor %}
+  </div>
+
+  {% include "bottom.njk" %}
+</body>
+
+</html>
