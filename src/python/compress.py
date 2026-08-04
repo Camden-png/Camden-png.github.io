@@ -38,7 +38,10 @@ SCALE_FACTOR = 0.5
 FRAME_SKIP = 2  # Keep every other frame
 NO_FRAME_SKIP = ["Boba.gif"]
 
-# GIFs to ignore (skip compression entirely)
+# GIFs to ignore scaling
+NO_SCALE = ["Haunt.gif"]
+
+# GIFs to completely ignore (skip compression entirely)
 IGNORE_GIFS = ["Talk.gif", "Eat.gif"]
 
 # Pixel art GIFs that should use nearest-neighbor scaling
@@ -101,14 +104,15 @@ def _compress_gif(input_path: str, output_path: str, colors: int) -> None:
         # Determine strategy
         is_palette = gif.mode == "P"
         is_palette_transparent = is_palette and has_transparency
-        is_large = file_size > LARGE_GIF_THRESHOLD and not is_palette_transparent
         is_pixel_art = file_name in PIXEL_ART_GIFS
+        no_scale = file_name in NO_SCALE
+        is_large = file_size > LARGE_GIF_THRESHOLD and not is_palette_transparent
 
         # Palette reference for standard palette GIFs
         palette_image = None
         if is_palette:
             palette_image = gif.copy()
-            if is_large:
+            if is_large and not no_scale:
                 palette_image = _scale_image(palette_image, SCALE_FACTOR, is_pixel_art)
 
         # Process frames
@@ -128,7 +132,7 @@ def _compress_gif(input_path: str, output_path: str, colors: int) -> None:
             durations.append(duration)
 
             # Scaling
-            if is_large:
+            if is_large and not no_scale:
                 frame = _scale_image(frame, SCALE_FACTOR, is_pixel_art)
 
             # Quantization

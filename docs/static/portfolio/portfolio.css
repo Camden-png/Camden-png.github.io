@@ -134,9 +134,9 @@ h1:first-of-type {
 
 @media (max-width: 415px) {
   #games span, #squad-info {
-    font-size: 16px;
+    font-size: 20px;
   }
   #squad p, #squad span {
-    font-size: 16px;
+    font-size: 20px;
   }
 }

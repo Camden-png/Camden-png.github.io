@@ -1,4 +1,4 @@
-<div class="game"
+<div class="game{% if game.square %} square{% endif %}"
   {% if game.id %}
     id="{{ game.id }}"
   {% endif %}

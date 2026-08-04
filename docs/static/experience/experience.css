@@ -52,7 +52,8 @@ h1 {
 }
 
 #resume a {
-  width: 200px;
+  width: 70%;
+  max-width: 300px;
 
   display: flex;
 
@@ -300,8 +301,8 @@ li {
 }
 
 #order {
-  width: 75%;
-  max-width: 260px;
+  width: 90%;
+  max-width: 340px;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
 }
 
@@ -338,17 +339,17 @@ h1:last-of-type {
 }
 
 @media (max-width: 415px) {
-  .job ul * {
-    font-size: 16px;
-  }
-  #resume a {
-    width: 240px;
+  .job ul {
+    font-size: 20px;
   }
   .video-resize {
     width: 85%;
   }
   #info {
     width: 85%;
+  }
+  #alera {
+    width: 300px;
   }
   #alexa {
     margin-left: 24px;

@@ -3,8 +3,7 @@ Set-Location $PSScriptRoot\..
 try {
   Remove-Item -Recurse -Force docs -ErrorAction SilentlyContinue
   python3 src/python/compress.py
-  npx @11ty/eleventy --serve
-  New-Item -ItemType File -Path "docs\.nojekyll" -Force | Out-Null
+  npx @11ty/eleventy --serve --incremental
 } finally {
   Set-Location $original
 }

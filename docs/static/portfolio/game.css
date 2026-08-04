@@ -18,9 +18,9 @@
 
 .game img {
   height: 380px;
-
   /* Percent does not work here since the parent has no fixed height use `vw instead`... */
   max-height: 60vw;
+
   width: auto;
   max-width: 100%;
 
@@ -74,12 +74,15 @@
     text-box-trim: none;
   }
   .game h2 {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .game a div {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .game a div:last-of-type {
     margin-bottom: 0;
+  }
+  .square img {
+    max-height: 95vw;
   }
 }
