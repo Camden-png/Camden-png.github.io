@@ -39,7 +39,13 @@
 }
 
 @media (max-width: 415px) {
-  .video-resize, .video-container, .video-responsive {
-    zoom: normal;
+  .video-resize {
+    zoom: 1.25;
+  }
+  .video-resize {
+    width: 80% !important;
+  }
+  .video-container, .video-responsive {
+    border-radius: 4px !important;
   }
 }

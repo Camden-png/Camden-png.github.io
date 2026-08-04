@@ -181,6 +181,7 @@ h2 {
   border-radius: 8px;
   background-color: #F5F5F5;
 
+  -webkit-filter: brightness(1.05);
   filter: brightness(1.05);
 }
 
@@ -282,9 +283,6 @@ h2 {
 }
 
 @media (max-width: 415px) {
-  #itch, #soundcloud, #itch iframe, #soundcloud iframe {
-    zoom: normal;
-  }
   #middle img {
     max-width: 140px;
   }
@@ -312,5 +310,12 @@ h2 {
 @media (max-width: 320px) {
   #middle {
     margin-top: 10px;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  #itch iframe #soundcloud iframe {
+    transform: scale(1.25);
+    transform-origin: top left;
   }
 }
