@@ -1,2 +1,7 @@
+$original = Get-Location
 Set-Location $PSScriptRoot\..
-npx serve docs
+try {
+  npx serve docs
+} finally {
+  Set-Location $original
+}

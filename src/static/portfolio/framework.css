@@ -287,6 +287,7 @@ h2 {
   }
   #side {
     align-items: flex-end;
+    justify-content: flex-end;
   }
   h1 {
     text-align: center;
@@ -312,7 +313,7 @@ h2 {
   }
 }
 
-/* Fix zoom scalining issue on iOS */
+/* Fix zoom scaling issue on iOS */
 @supports (-webkit-touch-callout: none) {
   #itch iframe, #soundcloud iframe {
     transform: scale(1.25);
